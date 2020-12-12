@@ -1,3 +1,6 @@
+import { model } from './decorators';
+
+@model()
 class User {
   //@editable
   //@required

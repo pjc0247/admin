@@ -1,4 +1,5 @@
 import React from 'react';
+import { CssBaseline, Toolbar } from '@material-ui/core';
 
 import TopMenu from './component/TopMenu';
 import SideMenu from 'component/SideMenu';
@@ -7,13 +8,15 @@ import Routes from 'Routes';
 
 const App = () => {
   return (
-    <div>
-      <TopMenu />
-      <SideMenu />
-
-      <TableView />
-
-      <Routes />
+    <div style={{ display: 'flex' }}>
+      <CssBaseline>
+        <TopMenu />
+        <SideMenu />
+        <main>
+          <Toolbar />
+          <Routes />
+        </main>
+      </CssBaseline>
     </div>
   );
 }

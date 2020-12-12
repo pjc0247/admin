@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, ListItem, Button } from '@material-ui/core';
+import { Drawer, ListItem, Button, Toolbar } from '@material-ui/core';
 
 import SideMenuSpec from 'spec/SideMenu';
 
@@ -10,8 +10,10 @@ const SideMenu = ({
     <Drawer
       open
       variant="permanent"
+      style={{ width: '100px' }}
       {...props}
     >
+      <Toolbar />
       {SideMenuSpec.items.map(x => (
         <ListItem>
           <Button
