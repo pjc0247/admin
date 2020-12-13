@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "rootDirs": ["./src", "./src/framework", "./src/app"],
     "paths": {
       "spec/*": ["spec/*"],
       "component/*": ["component/*"],
+      "model/*": ["./src/framework/model/*", "./src/app/model/*"],
       "page/*": ["page/*"],
       "util/*": ["util/*"]
     }
