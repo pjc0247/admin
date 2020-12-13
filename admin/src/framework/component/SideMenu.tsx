@@ -1,12 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Drawer, ListItem, Button, Toolbar } from '@material-ui/core';
+import { useLocation } from 'react-router-dom';
 
 import SideMenuSpec from 'spec/SideMenu';
 import { LinkTo } from 'framework/component/wrap/LinkTo';
 
+const SMenuLabel = styled.span<any>`
+  ${({ active }) => active ? `
+    font-weight: bold;
+  ` : `
+    font-weight: normal;
+  `}
+`;
+
 const SideMenu = ({
   ...props
 }) => {
+  const location = useLocation();
+
   return (
     <Drawer
       open
@@ -21,9 +33,11 @@ const SideMenu = ({
             to={x.path}
           >
             <Button>
-              <span>
+              <SMenuLabel
+                active={location.pathname.startsWith(x.path)}
+              >
                 {x.label}
-              </span>
+              </SMenuLabel>
             </Button>
           </LinkTo>
         </ListItem>
