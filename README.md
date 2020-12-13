@@ -1,5 +1,7 @@
 # admin
 
+Easily build admin pages with half-magic and half-code.
+
 Spec
 ----
 
