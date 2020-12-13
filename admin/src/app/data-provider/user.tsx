@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-import IDataProvider from './IDataProvider';
+import IDataProvider from '../../framework/data-provider/IDataProvider';
 
 const store = () => firebase.firestore();
 

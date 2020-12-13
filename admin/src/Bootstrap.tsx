@@ -1,21 +1,21 @@
-import { registerRenderer } from 'model/renderer';
-import { registerEditor } from 'model/editor';
-import { registerTypeConverter } from 'type/converter';
+import { registerRenderer } from 'framework/model/renderer';
+import { registerEditor } from 'framework/model/editor';
+import { registerTypeConverter } from 'framework/type/converter';
 
 /*  Write your model imports here:
  */
-import 'model/user';
+import 'app/model/user';
 
 /*  Declare your custom type renderers here:
  */
-registerRenderer('Date', require('component/type-renderer/Date').default);
-registerRenderer('string', require('component/type-renderer/String').default);
-registerRenderer('number', require('component/type-renderer/Number').default);
+registerRenderer('Date', require('framework/component/type-renderer/Date').default);
+registerRenderer('string', require('framework/component/type-renderer/String').default);
+registerRenderer('number', require('framework/component/type-renderer/Number').default);
 
-registerEditor('Date', require('component/type-editor/Date').default);
-registerEditor('string', require('component/type-editor/String').default);
-registerEditor('number', require('component/type-editor/Number').default);
+registerEditor('Date', require('framework/component/type-editor/Date').default);
+registerEditor('string', require('framework/component/type-editor/String').default);
+registerEditor('number', require('framework/component/type-editor/Number').default);
 
 /*  Declare your custom type converters here:
  */
-registerTypeConverter('Date', require('type/Date').default);
+registerTypeConverter('Date', require('framework/type/Date').default);

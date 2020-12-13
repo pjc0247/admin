@@ -1,4 +1,4 @@
-import { model, type } from 'model/decorators';
+import { model, type } from 'framework/model/decorators';
 
 @model()
 class User {

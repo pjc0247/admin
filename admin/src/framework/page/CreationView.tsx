@@ -8,9 +8,9 @@ import {
 import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
 
-import IDataProvider from 'data-provider/IDataProvider';
-import { getAllProps, getDefaultValues } from 'model/decorators';
-import { renderPropEditor } from 'model/editor';
+import IDataProvider from 'framework/data-provider/IDataProvider';
+import { getAllProps, getDefaultValues } from 'framework/model/decorators';
+import { renderPropEditor } from 'framework/model/editor';
 
 type CreationViewProps = {
   model: string;

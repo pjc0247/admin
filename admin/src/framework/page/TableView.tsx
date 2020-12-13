@@ -9,10 +9,10 @@ import {
   TableRow,
 } from '@material-ui/core';
 
-import IDataProvider from 'data-provider/IDataProvider';
-import { useRemoteValue } from 'util/useRemoteValue';
-import { getAllProps } from 'model/decorators';
-import { renderProp } from 'model/renderer';
+import IDataProvider from 'framework/data-provider/IDataProvider';
+import { useRemoteValue } from 'framework/util/useRemoteValue';
+import { getAllProps } from 'framework/model/decorators';
+import { renderProp } from 'framework/model/renderer';
 
 type TableViewProps = {
   model: string;
