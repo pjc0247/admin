@@ -8,6 +8,7 @@ import IDataProvider from 'framework/data-provider/IDataProvider';
 export const createPagesForResource = (model: string, dataProvider: IDataProvider) => {
   return {
     [`${model}_list`]: {
+      model,
       path: `/${model}`,
       exact: true,
       component: () => (
@@ -18,6 +19,7 @@ export const createPagesForResource = (model: string, dataProvider: IDataProvide
       ),
     },
     [`${model}_create`]: {
+      model,
       path: `/${model}/create`,
       component: () => (
         <CreationView
@@ -27,6 +29,7 @@ export const createPagesForResource = (model: string, dataProvider: IDataProvide
       ),
     },
     [`${model}_edit`]: {
+      model,
       path: `/${model}/edit`,
       component: () => (
         <DetailView

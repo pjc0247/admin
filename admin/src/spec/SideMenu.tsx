@@ -1,6 +1,6 @@
 const SideMenu = {
   items: [
-    { icon: 'asdf', label: 'User', path: '/user' },
+    { icon: 'person', label: 'User', path: '/user', model: 'User' },
     { icon: 'asdf', label: 'asdf2' },
     { icon: 'asdf', label: 'asdf3' },
   ],

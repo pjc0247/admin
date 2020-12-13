@@ -1,6 +1,11 @@
 import { model, type } from 'framework/model/decorators';
 
-@model()
+@model({
+  permissions: {
+    admin: 'CRUD',
+    viewer: 'R',
+  },
+})
 class User {
   //@editable
   //@required

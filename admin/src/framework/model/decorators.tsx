@@ -4,16 +4,25 @@ interface PropMetadata {
 };
 interface ModelMetadata {
   props: Record<string, PropMetadata>;
+
   defaultValues?: any;
+  permissions?: Record<string, string>;
 };
 
 const models = {
 
 } as Record<string, ModelMetadata>;
 
-export const model = () => {
+interface ModelParams {
+  permissions?: Record<string, string>;
+};
+export const model = (params: ModelParams = {}) => {
   return (ctor: any, ...args: any) => {
-    models[ctor.name].defaultValues = new ctor();
+    models[ctor.name] = {
+      ...models[ctor.name],
+      defaultValues: new ctor(),
+      permissions: params.permissions,
+    };
     console.log(models);
   };
 }
@@ -28,6 +37,9 @@ export const type = (type: string) => {
   };
 };
 
+export const getModelMetadata = (model: string) => {
+  return models[model] || {};
+};
 export const getDefaultValues = (model: string) => {
   return models[model].defaultValues || {};
 };
