@@ -16,7 +16,22 @@ class User {
 }
 ```
 
+### Constraints
+
+```tsx
+@model()
+class User {
+  @type('Enum', ['male', 'female'])
+  gender: string = 'male';
+}
+```
+
 ### Role and Permissions
+
+* __C__: Create documents.
+* __R__: Read documents. (Allow access to enter the list page)
+* __U__: Modify documents.
+* __D__: Delete documnets.
 
 ```tsx
 @model({
@@ -43,6 +58,22 @@ class Article {
 }
 ```
 
+AuthProvider
+----
+```tsx
+class AuthProvider extends IAuthProvider {
+  get isLoggedIn() {
+    /* ... */
+  }
+  get role() {
+    /* ... */
+  }
+  
+  login(id: string, password: string) {
+    /* ... */
+  }
+}
+```
  
 DataProvider
 ----
@@ -67,5 +98,13 @@ class UserProvider extends IDataProvider {
   }
   
   /* And other CRUD operations goes here .... */
+}
+```
+
+
+### In case that you don't have some operations
+It's okay to not to define one or more operations you don't have.
+```tsx
+class ArticleProvider extends IDataProvider {
 }
 ```
