@@ -4,6 +4,7 @@ Spec
 ----
 
 ### AppSpec
+`appspec` describes essential and whole app scoped stuffs.
 ```tsx
 {
   name: "MY FIRST ADMIN",
@@ -13,6 +14,7 @@ Spec
 ```
 
 ### PageSpec
+`pagespec` describes routings.
 ```tsx
 {
   Dashboard: {
@@ -27,12 +29,20 @@ Spec
 ```
 
 ### SideMenuSpec
+`sidemenuspec` describes how the SideMenu(Drawer) is displayed.
 ```tsx
 {
   items: [
     { icon: 'star', label: 'Dashboard', path: '/' },
     { icon: 'person', label: 'User', path: '/user', model: 'User' },
   ],
+}
+```
+
+### TypeSpec
+```tsx
+{
+  timestamp: TimestampKind.ISO,
 }
 ```
 
@@ -91,6 +101,37 @@ Empty permission indicates `ALL PERMISSIONS FOR ALL USERS`.
 // every user can perform CRUD for this model:
 @model()
 class Article {
+}
+```
+
+TypeConverter
+----
+`TypeConverter`는 `서버/클라이언트` 간 타입 인코딩/포멧을 변환해주는 역할을 합니다. <br />
+아래와 같은 인터페이스를 구현해서 타입이 어떻게 클라이언트에 수신되고, 서버에 전송될지 정의합니다.
+```tsx
+class ITypeConverter {
+  toClientType(value: any): any {
+    return value;
+  }
+  toServerType(value: any): any {
+    return value;
+  }
+}
+```
+
+`TypeConverter`의 가장 좋은 예시는 `DateConverter`입니다. <br />
+통신 프로토콜에서 시간값은 보통 `string(date string)` 또는 `number(epoch)`로 이루어져 있지만,
+자바스크립트는 `moment` 혹은 `Date`를 사용해 시간을 처리합니다.<br />
+<br />
+아래 코드는 프로토콜과 실제 코드의 타입을 보간해주는 역할을 합니다.
+```tsx
+class DateConverter extends ITypeConverter {
+  toClientType(value: any) {
+    return moment(value);
+  }
+  toServerType(value: any) {
+    return value.toISOString();
+  }
 }
 ```
 
