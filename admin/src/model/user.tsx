@@ -5,12 +5,12 @@ class User {
   //@editable
   //@required
   @type('string')
-  name: String = 'DEFAULT_VALUE';
+  name: string = '기본 이름';
 
   @type('number')
-  age: String = 'DEFAULT_VALUE';
+  age: number = 13;
 
   @type('Date')
-  createdAt: String = 'DEFAULT_VALUE';
+  createdAt: Date = new Date();
 }
 export default User;

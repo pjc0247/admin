@@ -10,6 +10,7 @@ const createPagesForResource = (model: string, dataProvider: IDataProvider) => {
   return {
     [`${model}_list`]: {
       path: `/${model}`,
+      exact: true,
       component: (
         <TableView
           model={model}
@@ -21,6 +22,7 @@ const createPagesForResource = (model: string, dataProvider: IDataProvider) => {
       path: `/${model}/create`,
       component: (
         <CreationView
+          model={model}
           dataProvider={dataProvider}
         />
       ),
