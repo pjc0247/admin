@@ -1,12 +1,20 @@
 import React from 'react';
 
 import { createPagesForResource } from 'framework/router/createPagesForResource';
+import { Login } from 'framework/page/Login';
 import UserProvider from 'app/data-provider/user';
+import { Dashboard } from 'app/page/Dashboard';
 
 const Page = {
   Dashboard: {
-    path: '/dashboard',
-    component: () => <></>
+    path: '/',
+    exact: true,
+    component: () => <Dashboard />,
+  },
+  Login: {
+    path: '/login',
+    exact: true,
+    component: () => <Login />,
   },
 
   ...createPagesForResource('User', new UserProvider()),
