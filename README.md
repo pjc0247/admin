@@ -1,5 +1,41 @@
 # admin
- 
+
+Spec
+----
+
+### AppSpec
+```tsx
+{
+  name: "MY FIRST ADMIN",
+
+  authProvider: new AuthProvider(),
+}
+```
+
+### PageSpec
+```tsx
+{
+  Dashboard: {
+    path: '/',
+    exact: true,
+    component: () => <Dashboard />,
+  },
+  
+  ...createPagesForResource('User', new UserProvider()),
+  ...createPagesForResource('Article', new ArticleProvider()),
+}
+```
+
+### SideMenuSpec
+```tsx
+{
+  items: [
+    { icon: 'star', label: 'Dashboard', path: '/' },
+    { icon: 'person', label: 'User', path: '/user', model: 'User' },
+  ],
+}
+```
+
 
 Model
 ----
