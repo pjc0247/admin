@@ -203,8 +203,14 @@ class UserProvider extends IDataProvider {
 
 ### In case that you don't have some operations
 It's okay to not to define one or more operations you don't have.
+
+만약 당신의 관리자 앱이 단순히 Viwer용도이고, 어떠한 추가/수정 작업도 수행할 수 없다면<br/>
+아래와 같이 Provider안에 `list` API만 정의해도 아무런 상관이 없습니다.
 ```tsx
 class ArticleProvider extends IDataProvider {
+  list(offset: number, limit: number) {
+    /* ... */
+  }
 }
 ```
 
