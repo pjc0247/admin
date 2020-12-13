@@ -10,7 +10,7 @@ export const createPagesForResource = (model: string, dataProvider: IDataProvide
     [`${model}_list`]: {
       path: `/${model}`,
       exact: true,
-      component: (
+      component: () => (
         <TableView
           model={model}
           dataProvider={dataProvider}
@@ -19,7 +19,7 @@ export const createPagesForResource = (model: string, dataProvider: IDataProvide
     },
     [`${model}_create`]: {
       path: `/${model}/create`,
-      component: (
+      component: () => (
         <CreationView
           model={model}
           dataProvider={dataProvider}
@@ -28,7 +28,7 @@ export const createPagesForResource = (model: string, dataProvider: IDataProvide
     },
     [`${model}_edit`]: {
       path: `/${model}/edit`,
-      component: (
+      component: () => (
         <DetailView
           dataProvider={dataProvider}
         />

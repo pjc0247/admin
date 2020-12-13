@@ -7,12 +7,14 @@ import {
   TablePagination,
   TableCell,
   TableRow,
+  Button,
 } from '@material-ui/core';
 
 import IDataProvider from 'framework/data-provider/IDataProvider';
 import { useRemoteValue } from 'framework/util/useRemoteValue';
 import { getAllProps } from 'framework/model/decorators';
 import { renderProp } from 'framework/model/renderer';
+import { Link } from 'react-router-dom';
 
 type TableViewProps = {
   model: string;
@@ -30,6 +32,16 @@ const TableView = ({
 
   return (
     <Card>
+      <Link
+        to={location => `${location.pathname}/create`}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+        >
+          추가
+        </Button>
+      </Link>
       <Table>
         <TableHead>
           <TableRow>

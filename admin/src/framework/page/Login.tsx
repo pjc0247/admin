@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Button, Card, CardContent, Container, TextField } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+
+import AppSpec from 'spec/App';
 
 type LoginProps = {
 
@@ -7,11 +10,13 @@ type LoginProps = {
 export const Login = ({
   ...props
 }: LoginProps) => {
+  const history = useHistory();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
   const onClickLogin = async () => {
-
+    await AppSpec.authProvider.login(id, password);
+    history.push('/');
   };
 
   return (

@@ -14,6 +14,7 @@ const Page = {
   Login: {
     path: '/login',
     exact: true,
+    public: true,
     component: () => <Login />,
   },
 

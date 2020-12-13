@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { CssBaseline, Toolbar } from '@material-ui/core';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import TopMenu from 'framework/component/TopMenu';
 import SideMenu from 'framework/component/SideMenu';
@@ -17,16 +18,18 @@ const SMain = styled.main`
 
 const App = () => {
   return (
-    <div style={{ display: 'flex' }}>
-      <CssBaseline>
-        <TopMenu />
-        <SideMenu />
-        <SMain>
-          <Toolbar />
-          <Routes />
-        </SMain>
-      </CssBaseline>
-    </div>
+    <Router>
+      <div style={{ display: 'flex' }}>
+        <CssBaseline>
+          <TopMenu />
+          <SideMenu />
+          <SMain>
+            <Toolbar />
+            <Routes />
+          </SMain>
+        </CssBaseline>
+      </div>
+    </Router>
   );
 }
 export default App;

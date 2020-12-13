@@ -1,5 +1,6 @@
 import React from 'react';
 import { Drawer, ListItem, Button, Toolbar } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import SideMenuSpec from 'spec/SideMenu';
 
@@ -14,15 +15,17 @@ const SideMenu = ({
       {...props}
     >
       <Toolbar />
-      {SideMenuSpec.items.map(x => (
+      {SideMenuSpec.items.map((x: any) => (
         <ListItem>
-          <Button
-            href={x.path}
+          <Link
+            to={x.path}
           >
-            <span>
-              {x.label}
-            </span>
-          </Button>
+            <Button>
+              <span>
+                {x.label}
+              </span>
+            </Button>
+          </Link>
         </ListItem>
       ))}
     </Drawer>
