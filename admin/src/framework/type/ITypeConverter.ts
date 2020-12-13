@@ -1,4 +1,4 @@
-/* Translate type format/coding between server and client
+/* Translate type formats/codings between server and client.
  */
 class ITypeConverter {
   toClientType(value: any): any {
