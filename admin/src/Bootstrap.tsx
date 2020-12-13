@@ -13,6 +13,7 @@ registerRenderer('string', require('framework/component/type-renderer/String').d
 registerRenderer('number', require('framework/component/type-renderer/Number').default);
 
 registerEditor('Date', require('framework/component/type-editor/Date').default);
+registerEditor('Enum', require('framework/component/type-editor/Enum').default);
 registerEditor('string', require('framework/component/type-editor/String').default);
 registerEditor('number', require('framework/component/type-editor/Number').default);
 

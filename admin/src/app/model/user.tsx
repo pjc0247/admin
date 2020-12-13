@@ -17,5 +17,8 @@ class User {
 
   @type('Date')
   createdAt: Date = new Date();
+
+  @type('Enum', ['admin', 'viewer', 'user'])
+  role: string = 'admin';
 }
 export default User;

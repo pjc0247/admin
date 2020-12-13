@@ -1,13 +1,8 @@
-interface PropMetadata {
-  name?: string;
-  type?: string;
-};
-interface ModelMetadata {
-  props: Record<string, PropMetadata>;
-
-  defaultValues?: any;
-  permissions?: Record<string, string>;
-};
+import {
+  TypeMetadata,
+  ModelMetadata,
+  PropMetadata,
+} from './metadata';
 
 const models = {
 
@@ -26,13 +21,16 @@ export const model = (params: ModelParams = {}) => {
     console.log(models);
   };
 }
-export const type = (type: string) => {
+export const type = (type: string, constraints: (any[] | undefined) = undefined) => {
   return (target: any, prop: string) => {
     const name = target.constructor.name;
     if (!models[name])
       models[name] = { props: {} };
     models[name].props[prop] = {
-      type
+      type: {
+        name: type,
+        constraints,
+      },
     };
   };
 };
