@@ -11,18 +11,19 @@ class UserProvider extends IDataProvider {
       .add(values);
   }
   async get(id: string) {
-    return await store()
+    return (await store()
       .collection('user')
       .doc(id)
-      .get();
+      .get())
+      .data();
   }
   async list(offset: number, limit: number) {
     return (await store()
       .collection('user')
-      .startAt(offset)
       .limit(limit)
       .get())
-      .docs;
+      .docs
+      .map(x => x.data());
   }
 }
 export default UserProvider;

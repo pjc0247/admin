@@ -3,8 +3,9 @@ import { CssBaseline, Toolbar } from '@material-ui/core';
 
 import TopMenu from './component/TopMenu';
 import SideMenu from 'component/SideMenu';
-import TableView from 'page/TableView';
 import Routes from 'Routes';
+
+import './Bootstrap';
 
 const App = () => {
   return (

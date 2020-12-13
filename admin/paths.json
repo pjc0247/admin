@@ -4,7 +4,8 @@
     "paths": {
       "spec/*": ["spec/*"],
       "component/*": ["component/*"],
-      "page/*": ["page/*"]
+      "page/*": ["page/*"],
+      "util/*": ["util/*"]
     }
   }
 }

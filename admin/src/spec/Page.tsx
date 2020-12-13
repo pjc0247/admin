@@ -6,26 +6,27 @@ import CreationView from 'page/CreationView';
 import IDataProvider from 'data-provider/IDataProvider';
 import UserProvider from 'data-provider/user';
 
-const createPagesForResource = (name: string, dataProvider: IDataProvider) => {
+const createPagesForResource = (model: string, dataProvider: IDataProvider) => {
   return {
-    [`${name}_list`]: {
-      path: `/${name}`,
+    [`${model}_list`]: {
+      path: `/${model}`,
       component: (
         <TableView
+          model={model}
           dataProvider={dataProvider}
         />
       ),
     },
-    [`${name}_create`]: {
-      path: `/${name}/create`,
+    [`${model}_create`]: {
+      path: `/${model}/create`,
       component: (
         <CreationView
           dataProvider={dataProvider}
         />
       ),
     },
-    [`${name}_edit`]: {
-      path: `/${name}/edit`,
+    [`${model}_edit`]: {
+      path: `/${model}/edit`,
       component: (
         <DetailView
           dataProvider={dataProvider}
@@ -41,6 +42,6 @@ const Page = {
     component: () => <></>
   },
 
-  ...createPagesForResource('user', new UserProvider()),
+  ...createPagesForResource('User', new UserProvider()),
 };
 export default Page;
