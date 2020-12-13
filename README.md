@@ -114,6 +114,18 @@ class Article {
 }
 ```
 
+Custom Components
+----
+
+### Type Renderer
+```tsx
+```
+
+### Type Editor
+```tsx
+```
+
+
 TypeConverter
 ----
 `TypeConverter`는 `서버/클라이언트` 간 타입 인코딩/포멧을 변환해주는 역할을 합니다. <br />
@@ -128,18 +140,6 @@ class ITypeConverter {
   }
 }
 ```
-
-Custom Components
-----
-
-### Type Renderer
-```tsx
-```
-
-### Type Editor
-```tsx
-```
-
 
 `TypeConverter`의 가장 좋은 예시는 `DateConverter`입니다. <br />
 통신 프로토콜에서 시간값은 보통 `string(date string)` 또는 `number(epoch)`로 이루어져 있지만,
