@@ -26,11 +26,20 @@ class User {
     editor: 'CRU',
     viwer: 'R',
     app: '',      // Empty string means no-permissions.
-                  // A user with `app` role will not be able to enter `Article` pages.
+                  // A user with `app` role won't be able to enter `Article` pages.
   },
 })
 class Article {
   /* ... */
+}
+```
+
+You may skip providing permission list. <br>
+Empty permission indicates `ALL PERMISSIONS FOR ALL USERS`.
+```tsx
+// every user can perform CRUD for this model:
+@model()
+class Article {
 }
 ```
 
