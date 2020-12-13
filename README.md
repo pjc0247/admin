@@ -6,6 +6,7 @@ Model
 `Model`은 데이터가 어떠한 스키마로 정의되어 있는지 표현합니다.
 
 ```tsx
+@model()
 class User {
   @type('string')
   name: string;
@@ -14,6 +15,25 @@ class User {
   gender: string = 'male';
 }
 ```
+
+### Role and Permissions
+
+```tsx
+@model({
+  permissions: {
+    admin: 'CRUD', // or you can skip this line.
+                   // Every non-specified roles act as 'CRUD' (can perform all operations).
+    editor: 'CRU',
+    viwer: 'R',
+    app: '',      // Empty string means no-permissions.
+                  // A user with `app` role will not be able to enter `Article` pages.
+  },
+})
+class Article {
+  /* ... */
+}
+```
+
  
 DataProvider
 ----
@@ -23,6 +43,7 @@ DataProvider
 __An example of UserProvider that directly communicates with firestore DB__
 ```tsx
 class UserProvider extends IDataProvider {
+  // Create a new document with given values.
   async create(values: any) {
     await store()
       .collection('user')
