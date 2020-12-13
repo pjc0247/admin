@@ -12,7 +12,6 @@ export const registerRenderer = (type: string, component: any) => {
 
 export const renderProp = (data: any, type: string) => {
   if (renderers[type]) {
-    console.log('has renrer');
     const Component = renderers[type];
     return <Component>{data}</Component>;
   }
