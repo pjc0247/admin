@@ -12,10 +12,13 @@ export const registerRenderer = (type: string, component: any) => {
   renderers[type] = component;
 };
 export const renderProp = (data: any, type: TypeMetadata) => {
-  console.log('type', type);
   if (renderers[type.name]) {
     const Component = renderers[type.name];
-    return <Component>{data}</Component>;
+    return (
+      <Component type={type}>
+        {data}
+      </Component>
+    );
   }
   return `${data}`;
 };
