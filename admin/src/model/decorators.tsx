@@ -17,7 +17,6 @@ export const model = () => {
     console.log(models);
   };
 }
-
 export const type = (type: string) => {
   return (target: any, prop: string) => {
     const name = target.constructor.name;

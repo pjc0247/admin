@@ -9,7 +9,6 @@ export const registerEditor = (type: string, component: any) => {
     throw new Error(`component is null or undefined for type: ${type}`);
   editors[type] = component;
 };
-
 export const renderPropEditor = (name: string, type: string, value: any, onChange: (x: any) => void) => {
   if (editors[type]) {
     const Component = editors[type];
