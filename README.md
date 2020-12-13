@@ -4,7 +4,7 @@ Easily build admin pages with half-magic and half-code.
 
 Features
 ----
-* Codes with magic
+* Coding with magic
   * 이 프로젝트의 목표는 어드민 제너레이터, 혹은 완전히 흑마법으로 뒤덮힌 프레임워크가 아닙니다. 이러한 프로젝트들은 90%의 경우를 커버할 수 있지만 10%의 예외 케이스 때문에 사용이 망설여질수밖에 없습니다.
   * 코딩을 통해 관리자 페이지를 만들어야 하지만, 프레임워크의 마법이 정말 필요한 부분만 코딩할 수 있도록 해줍니다.
 * Fully customizable
