@@ -119,6 +119,18 @@ class ITypeConverter {
 }
 ```
 
+Custom Components
+----
+
+### Type Renderer
+```tsx
+```
+
+### Type Editor
+```tsx
+```
+
+
 `TypeConverter`의 가장 좋은 예시는 `DateConverter`입니다. <br />
 통신 프로토콜에서 시간값은 보통 `string(date string)` 또는 `number(epoch)`로 이루어져 있지만,
 자바스크립트는 `moment` 혹은 `Date`를 사용해 시간을 처리합니다.<br />
