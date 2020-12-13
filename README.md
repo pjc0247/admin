@@ -4,7 +4,7 @@ Spec
 ----
 
 ### AppSpec
-`appspec` describes essential and whole app scoped stuffs.
+`appspec` describes essential and app-wide stuffs.
 ```tsx
 {
   name: "MY FIRST ADMIN",
@@ -185,3 +185,8 @@ It's okay to not to define one or more operations you don't have.
 class ArticleProvider extends IDataProvider {
 }
 ```
+
+
+It's done!
+----
+You're ready to build your admin pages now!
