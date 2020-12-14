@@ -78,6 +78,10 @@ All primitive types must be started with a lower case.
 * __Date__
 * __Enum__
 
+__Custom Types__<br/>
+Custom types are also supported as well. <br/>
+See, [Custom Components](https://github.com/pjc0247/admin#custom-components).
+
 ### Constraints
 
 ```tsx
