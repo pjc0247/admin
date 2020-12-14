@@ -9,6 +9,6 @@ export enum DataOperationKind {
 
 export const canPerform = (model: string, role: string, kind: DataOperationKind) => {
   const permissions = getModelMetadata(model).permissions || {};
-  if (!permissions[role]) return true;
+  if (!permissions[role] && permissions[role] !== '') return true;
   return permissions[role].includes(kind);
 };
