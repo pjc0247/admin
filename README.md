@@ -1,4 +1,5 @@
-# admin
+admin::builder
+====
 
 Easily build admin pages with half-magic and half-code.
 
