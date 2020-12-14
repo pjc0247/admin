@@ -8,6 +8,14 @@ Useful Components
 ----
 
 ### DataOperation
+
+It checks whether both conditions below are satisfied.
+
+* User has a proper permission.
+* DataProvider has a implementation of matching operation.
+
+Otherwise, child element won't be rendered.
+
 ```tsx
 <DataOperation
   operationKind={DataOperationKind.Delete
