@@ -71,6 +71,12 @@ class User {
   gender: string = 'male';
 }
 ```
+__Supported Types__<br/>
+All primitive types must be started with a lower case.
+* __number__
+* __string__
+* __Date__
+* __Enum__
 
 ### Constraints
 
