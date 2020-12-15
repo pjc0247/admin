@@ -1,3 +1,6 @@
+import 'moment/locale/ko';
+import moment from 'moment';
+
 import { registerRenderer } from 'framework/model/renderer';
 import { registerEditor } from 'framework/model/editor';
 import { registerTypeConverter } from 'framework/type/converter';
@@ -22,3 +25,5 @@ registerEditor('number', require('framework/component/type-editor/Number').defau
 /*  Declare your custom type converters here:
  */
 registerTypeConverter('Date', require('framework/type/Date').default);
+
+moment.locale("ko");

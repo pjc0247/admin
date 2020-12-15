@@ -52,16 +52,30 @@ const CreationView = ({
                 values
               }: any) => (
                 <>
-                  {modelProps.map((x: any) => (
-                    renderPropEditor(x.name, x.type, values[x.name], handleChange)
-                  ))}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleSubmit}
+                  <Box mt={3} mb={2}>
+                    {modelProps.map((x: any) => (
+                      <Box mb={2}>
+                        {renderPropEditor(
+                          x.label || x.name,
+                          x.type,
+                          values[x.name],
+                          handleChange,
+                        )}
+                      </Box>
+                    ))}
+                  </Box>
+                  <Box
+                    display="flex"
+                    justifyContent="flex-end"
                   >
-                    생성
-                  </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleSubmit}
+                    >
+                      생성
+                    </Button>
+                  </Box>
                 </>
               )}
             </Formik>

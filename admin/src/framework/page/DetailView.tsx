@@ -82,6 +82,7 @@ const DetailView = ({
                     <Box
                       display="flex"
                       justifyContent="flex-end"
+                      style={{ gap: '15px '}}
                     >
                       <DataOperation
                         operationKind={DataOperationKind.Delete}

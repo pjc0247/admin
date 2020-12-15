@@ -6,7 +6,8 @@
       "component/*": ["component/*"],
       "model/*": ["./src/framework/model/*", "./src/app/model/*"],
       "page/*": ["page/*"],
-      "util/*": ["util/*"]
+      "util/*": ["util/*"],
+      "asset/*": ["asset/*"]
     }
   }
 }

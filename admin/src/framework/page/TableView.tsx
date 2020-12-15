@@ -20,9 +20,9 @@ import { useRemoteValue } from 'framework/util/useRemoteValue';
 import { getAllProps, getBreifProps } from 'framework/model/decorators';
 import { renderProp } from 'framework/model/renderer';
 import { canPerform, DataOperationKind } from 'framework/model/permission';
-import AppSpec from 'spec/App';
 import { hasImplementation } from 'framework/data-provider';
 import { LinkTo } from 'framework/component/wrap/LinkTo';
+import AppSpec from 'spec/App';
 
 type TableViewProps = {
   model: string;
@@ -51,7 +51,7 @@ const TableView = ({
         justifyContent="flex-end"
       >
         {shouldDisplay(DataOperationKind.Delete) && (
-          <Link
+          <LinkTo
             to={location => `${location.pathname}/create`}
           >
             <Button
@@ -60,10 +60,10 @@ const TableView = ({
             >
               삭제
             </Button>
-          </Link>
+          </LinkTo>
         )}
         {shouldDisplay(DataOperationKind.Create) && (
-          <Link
+          <LinkTo
             to={location => `${location.pathname}/create`}
           >
             <Button
@@ -72,7 +72,7 @@ const TableView = ({
             >
               추가
             </Button>
-          </Link>
+          </LinkTo>
         )}
       </Box>
       <Box mt={3}>

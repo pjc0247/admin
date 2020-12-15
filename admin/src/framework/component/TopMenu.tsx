@@ -7,7 +7,9 @@ import {
   Typography,
   IconButton,
   Icon,
+  Avatar,
 } from '@material-ui/core';
+import AppIcon from 'asset/icon.png';
 
 import AppSpec from 'spec/App';
 import { LinkTo } from 'framework/component/wrap/LinkTo';
@@ -30,6 +32,10 @@ const TopMenu = ({
       {...props}
     >
       <Toolbar>
+        <Avatar
+          src={AppIcon}
+        />
+        <Box mr={3} />
         <LinkTo to="/">
           <Typography variant="h6" noWrap>
             {AppSpec.name}
