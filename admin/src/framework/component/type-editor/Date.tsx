@@ -5,25 +5,30 @@ import {
   MuiPickersUtilsProvider,
   DateTimePicker,
 } from '@material-ui/pickers';
+import { useFormikContext } from 'formik';
 
 type DateProps = {
+  name: string,
   value: any;
   onChange: (v: any) => void;
 };
 export const Date = ({
+  name,
   value,
   onChange,
   ...props
 }: DateProps) => {
+  const {
+    setFieldValue,
+  } = useFormikContext();
   return (
     <MuiPickersUtilsProvider
       libInstance={moment}
       utils={MomentUtils}
-      locale={'kr'}
     >
       <DateTimePicker
         value={value}
-        onChange={onChange}
+        onChange={(e) => setFieldValue(name, e)}
       />
     </MuiPickersUtilsProvider>
   );
