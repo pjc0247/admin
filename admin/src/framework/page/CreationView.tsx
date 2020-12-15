@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import {
   Box,
   Button,
@@ -19,6 +20,10 @@ import IDataProvider from 'framework/data-provider/IDataProvider';
 import { getAllProps, getDefaultValues, getModel, getPropDisplayName } from 'framework/model/decorators';
 import { renderPropEditor } from 'framework/model/editor';
 
+const SAccordianSummary = styled(AccordionSummary)`
+  background: linear-gradient( to bottom, rgb(245, 245, 245) 10%, rgb(255, 255, 255) );
+`;
+
 type GroupedEditorProps = {
   model: string;
   groups: any[];
@@ -38,7 +43,7 @@ const GroupedEditor = ({
     <>
       {groups.map(group => (
         <Accordion>
-          <AccordionSummary
+          <SAccordianSummary
             expandIcon={<ExpandMoreIcon />}
           >
             <Typography
@@ -46,7 +51,7 @@ const GroupedEditor = ({
             >
               <b>{group.label}</b>
             </Typography>
-          </AccordionSummary>
+          </SAccordianSummary>
           <AccordionDetails>
             {group.props.map((x: string) => modelProps.find(y => x === y.name)).map((x: any) => (
               <Box mb={2}>

@@ -29,14 +29,12 @@ class User extends Model {
   brief() {
     return ['name', 'age'];
   }
-  /*
   groups() {
     return [
       { label: '기본 정보', props: ['name', 'age'] },
       { label: '권한', props: ['role'] },
     ];
   }
-  */
   editor() {
     return [
       ['name-2', 'age'],
