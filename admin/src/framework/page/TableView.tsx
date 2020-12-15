@@ -82,7 +82,9 @@ const TableView = ({
               <TableRow>
                 {modelProps.map((x: any) => (
                   <TableCell>
-                    {getPropDisplayName(model, x.name)}
+                    <b>
+                      {getPropDisplayName(model, x.name)}
+                    </b>
                   </TableCell>
                 ))}
               </TableRow>
