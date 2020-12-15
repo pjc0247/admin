@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 
 import IDataProvider from 'framework/data-provider/IDataProvider';
 import { useRemoteValue } from 'framework/util/useRemoteValue';
-import { getAllProps, getBreifProps } from 'framework/model/decorators';
+import { getAllProps, getBreifProps, getPropDisplayName } from 'framework/model/decorators';
 import { renderProp } from 'framework/model/renderer';
 import { canPerform, DataOperationKind } from 'framework/model/permission';
 import { hasImplementation } from 'framework/data-provider';
@@ -95,7 +95,10 @@ const TableView = ({
                   <TableRow>
                     {modelProps.map((p: any) => (
                       <TableCell>
-                        {renderProp(x[p.name], p.type)}
+                        {renderProp(
+                          getPropDisplayName(model, x.name),
+                          p.type,
+                        )}
                       </TableCell>
                     ))}
                   </TableRow>

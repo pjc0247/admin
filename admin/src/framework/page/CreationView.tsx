@@ -16,7 +16,7 @@ import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
 
 import IDataProvider from 'framework/data-provider/IDataProvider';
-import { getAllProps, getDefaultValues, getModel } from 'framework/model/decorators';
+import { getAllProps, getDefaultValues, getModel, getPropDisplayName } from 'framework/model/decorators';
 import { renderPropEditor } from 'framework/model/editor';
 
 type GroupedEditorProps = {
@@ -117,7 +117,7 @@ const CreationView = ({
                       modelProps.map((x: any) => (
                         <Box mb={2}>
                           {renderPropEditor(
-                            x.label || x.name,
+                            getPropDisplayName(model, x.name),
                             x.type,
                             values[x.name],
                             handleChange,

@@ -10,7 +10,7 @@ import {
 import { useHistory, useLocation } from 'react-router-dom';
 import { Formik } from 'formik';
 
-import { getAllProps } from 'framework/model/decorators';
+import { getAllProps, getPropDisplayName } from 'framework/model/decorators';
 import IDataProvider from 'framework/data-provider/IDataProvider';
 import { renderPropEditor } from 'framework/model/editor';
 import DataOperation from 'framework/component/operation/DataOperation';
@@ -71,7 +71,7 @@ const DetailView = ({
                       {modelProps.map((x: any) => (
                         <Box mb={2}>
                           {renderPropEditor(
-                            x.label || x.name,
+                            getPropDisplayName(model, x.name),
                             x.type,
                             values[x.name],
                             handleChange,

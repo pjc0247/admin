@@ -5,6 +5,8 @@ import {
   PropMetadata,
 } from './metadata';
 
+import LabelSpec from 'spec/Label';
+
 const models = {
 
 } as Record<string, ModelMetadata>;
@@ -76,4 +78,11 @@ export const getBreifProps = (model: string) => {
 };
 export const getModel = (model: string) => {
   return models[model];
+};
+export const getPropDisplayName = (model: string, prop: string) => {
+  const props = getModel(model).props;
+  return props[prop].label
+    || LabelSpec[prop]
+    || props[prop].name
+    || prop;
 };
