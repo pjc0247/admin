@@ -17,6 +17,9 @@ class User extends Model {
   @type('number')
   age: number = 13;
 
+  @type('boolean')
+  image: string = '';
+
   @type('Date')
   createdAt: Date = new Date();
 

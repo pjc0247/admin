@@ -13,5 +13,7 @@ class IAuthProvider {
     this.__isLoggedIn = true;
     return Promise.resolve();
   }
+  logout() {
+  }
 }
 export default IAuthProvider;
