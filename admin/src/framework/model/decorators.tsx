@@ -20,6 +20,7 @@ export const model = (params: ModelParams = {}) => {
       defaultValues: instance,
       permissions: params.permissions,
       breifProps: instance.brief(),
+      groups: instance.groups(),
     };
     console.log(models);
   };
@@ -66,11 +67,13 @@ export const getAllProps = (model: string) => {
 };
 export const getBreifProps = (model: string) => {
   const breifProps = models[model].breifProps;
-  console.log('b', breifProps);
   if (!breifProps) return getAllProps(model);
 
   const p = models[model].props;
   return Object.keys(p)
     .filter(x => breifProps.includes(x))
     .map(x => ({ name: x, ...(p[x] as any) }));
+};
+export const getModel = (model: string) => {
+  return models[model];
 };

@@ -10,6 +10,7 @@ export interface PropMetadata {
 export interface ModelMetadata {
   props: Record<string, PropMetadata>;
   breifProps?: (string[] | null);
+  groups?: (any[] | null); /* TODO: type */
 
   defaultValues?: any;
   permissions?: Record<string, string>;
