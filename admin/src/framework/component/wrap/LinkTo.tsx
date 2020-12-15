@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const SLink = styled(Link)`
+  display: contents;
+
+  color: unset;
   text-decoration: none;
 
   &:focus, &:hover, &:visited, &:link, &:active {
@@ -12,7 +15,7 @@ const SLink = styled(Link)`
 
 
 type LinkToProps = {
-	to: string;
+	to: (string | ((x: any) => any));
 	children: React.ReactNode;
 };
 export const LinkTo = ({

@@ -22,6 +22,9 @@ const SideMenu = ({
   const location = useLocation();
   const role = AppSpec.authProvider.role;
 
+  if (!AppSpec.authProvider.isLoggedIn)
+    return <></>;
+
   return (
     <Drawer
       open

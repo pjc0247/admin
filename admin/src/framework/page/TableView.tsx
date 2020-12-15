@@ -17,10 +17,12 @@ import { Link } from 'react-router-dom';
 
 import IDataProvider from 'framework/data-provider/IDataProvider';
 import { useRemoteValue } from 'framework/util/useRemoteValue';
-import { getAllProps } from 'framework/model/decorators';
+import { getAllProps, getBreifProps } from 'framework/model/decorators';
 import { renderProp } from 'framework/model/renderer';
 import { canPerform, DataOperationKind } from 'framework/model/permission';
 import AppSpec from 'spec/App';
+import { hasImplementation } from 'framework/data-provider';
+import { LinkTo } from 'framework/component/wrap/LinkTo';
 
 type TableViewProps = {
   model: string;
@@ -31,11 +33,16 @@ const TableView = ({
   dataProvider,
   ...props
 }: TableViewProps) => {
-  const modelProps = getAllProps(model);
+  const modelProps = getBreifProps(model);
   const role = AppSpec.authProvider.role;
   const [data] = useRemoteValue(() => {
     return dataProvider.list(0, 100);
   }, [], []);
+
+  const shouldDisplay = (kind: DataOperationKind) => {
+    return canPerform(model, role, kind)
+      && hasImplementation(dataProvider, kind);
+  };
 
   return (
     <Container>
@@ -43,7 +50,19 @@ const TableView = ({
         display="flex"
         justifyContent="flex-end"
       >
-        {canPerform(model, role, DataOperationKind.Create) && (
+        {shouldDisplay(DataOperationKind.Delete) && (
+          <Link
+            to={location => `${location.pathname}/create`}
+          >
+            <Button
+              variant="contained"
+              color="secondary"
+            >
+              삭제
+            </Button>
+          </Link>
+        )}
+        {shouldDisplay(DataOperationKind.Create) && (
           <Link
             to={location => `${location.pathname}/create`}
           >
@@ -63,20 +82,24 @@ const TableView = ({
               <TableRow>
                 {modelProps.map((x: any) => (
                   <TableCell>
-                    {x.name}
+                    {x.label || x.name}
                   </TableCell>
                 ))}
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((x: any) => (
-                <TableRow>
-                  {modelProps.map((p: any) => (
-                    <TableCell>
-                      {renderProp(x[p.name], p.type)}
-                    </TableCell>
-                  ))}
-                </TableRow>
+                <LinkTo
+                  to={location => ({ pathname: `${location.pathname}/edit`, state: { item: x }})}
+                >
+                  <TableRow>
+                    {modelProps.map((p: any) => (
+                      <TableCell>
+                        {renderProp(x[p.name], p.type)}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </LinkTo>
               ))}
             </TableBody>
           </Table>

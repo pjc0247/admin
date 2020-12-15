@@ -1,8 +1,10 @@
 import React from 'react';
 import {
+  Box,
   Button,
   Card,
   CardContent,
+  Container,
   TextField,
 } from '@material-ui/core';
 import { Formik } from 'formik';
@@ -30,39 +32,43 @@ const CreationView = ({
   };
 
   return (
-    <Card>
-      <CardContent>
-        <Formik
-          initialValues={{
-            ...getDefaultValues(model),
-          }}
-          onSubmit={onClickSubmit}
-        >
-          {({
-            errors,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-            isSubmitting,
-            touched,
-            values
-          }: any) => (
-            <>
-            {console.log(values)}
-              {modelProps.map((x: any) => (
-                renderPropEditor(x.name, x.type, values[x.name], handleChange)
-              ))}
-              <Button
-                variant="contained"
-                color="primary"
-              >
-                생성
-              </Button>
-            </>
-          )}
-        </Formik>
-      </CardContent>
-    </Card>
+    <Container>
+      <Box>
+        <Card>
+          <CardContent>
+            <Formik
+              initialValues={{
+                ...getDefaultValues(model),
+              }}
+              onSubmit={onClickSubmit}
+            >
+              {({
+                errors,
+                handleBlur,
+                handleChange,
+                handleSubmit,
+                isSubmitting,
+                touched,
+                values
+              }: any) => (
+                <>
+                  {modelProps.map((x: any) => (
+                    renderPropEditor(x.name, x.type, values[x.name], handleChange)
+                  ))}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleSubmit}
+                  >
+                    생성
+                  </Button>
+                </>
+              )}
+            </Formik>
+          </CardContent>
+        </Card>
+      </Box>
+    </Container>
   );
 };
 export default CreationView;

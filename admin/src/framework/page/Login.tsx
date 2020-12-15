@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Card, CardContent, Container, TextField } from '@material-ui/core';
+import { Box, Button, Card, CardContent, Container, TextField, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 import AppSpec from 'spec/App';
@@ -29,24 +29,44 @@ export const Login = ({
       <Container maxWidth="sm">
         <Card>
           <CardContent>
-            <TextField
-              fullWidth
-              value={id}
-              onChange={(e) => setId(e.target.value)}
-            />
-            <TextField
-              fullWidth
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={onClickLogin}
+            <Box>
+              <Typography variant="h6">
+                로그인 해 주세요.
+              </Typography>
+            </Box>
+            <Box mb={3} mt={2}>
+              <TextField
+                fullWidth
+                label="아이디"
+                margin="normal"
+                variant="outlined"
+                size="small"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+              />
+              <TextField
+                fullWidth
+                label="비밀번호"
+                margin="normal"
+                variant="outlined"
+                type="password"
+                size="small"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="flex-end"
             >
-              로그인
-            </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={onClickLogin}
+              >
+                로그인
+              </Button>
+            </Box>
           </CardContent>
         </Card>
       </Container>

@@ -33,6 +33,7 @@ export const createPagesForResource = (model: string, dataProvider: IDataProvide
       path: `/${model}/edit`,
       component: () => (
         <DetailView
+          model={model}
           dataProvider={dataProvider}
         />
       ),

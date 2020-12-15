@@ -25,5 +25,11 @@ class UserProvider extends IDataProvider {
       .docs
       .map(x => x.data());
   }
+
+  /*
+  async delete(id: string) {
+
+  }
+  */
 }
 export default UserProvider;
