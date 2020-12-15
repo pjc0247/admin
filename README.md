@@ -1,7 +1,6 @@
 admin::builder
 ====
-
-Easily build admin pages with half-magic and half-code.
+Build admin pages with less code.
 
 Features
 ----
