@@ -88,6 +88,11 @@ const CreationView = ({
       <Box>
         <Card>
           <CardContent>
+            <Box>
+              <Typography variant="h6">
+                새 {model} 추가
+              </Typography>
+            </Box>
             <Formik
               initialValues={{
                 ...getDefaultValues(model),
