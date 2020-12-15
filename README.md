@@ -33,6 +33,7 @@ Spec
     component: () => <Dashboard />,
   },
   
+  // automatically generates `/user`, `/user/edit`, `/user/create` pages.
   ...createPagesForResource('User', new UserProvider()),
   ...createPagesForResource('Article', new ArticleProvider()),
 }
