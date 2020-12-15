@@ -14,6 +14,7 @@ import 'app/model/user';
 registerRenderer('Date', require('framework/component/type-renderer/Date').default);
 registerRenderer('string', require('framework/component/type-renderer/String').default);
 registerRenderer('number', require('framework/component/type-renderer/Number').default);
+registerRenderer('Rating', require('framework/component/type-renderer/Rating').default);
 
 registerEditor('File', require('framework/component/type-editor/File').default);
 registerEditor('Date', require('framework/component/type-editor/Date').default);
