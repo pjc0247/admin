@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Card, CardContent, Container, TextField, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
+import { t } from 'framework/lang';
 import AppSpec from 'spec/App';
 
 type LoginProps = {
@@ -31,7 +32,7 @@ export const Login = ({
           <CardContent>
             <Box>
               <Typography variant="h6">
-                로그인 해 주세요.
+                {t('please_log_in')}
               </Typography>
             </Box>
             <Box mb={3} mt={2}>
