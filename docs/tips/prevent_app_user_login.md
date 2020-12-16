@@ -9,6 +9,9 @@ Remakrs
 
 Code
 ----
+
+Please write your `AuthProvider` like below:
+
 __auth.tsx__
 ```tsx
 class AuthProvider extends IAuthProvider {
