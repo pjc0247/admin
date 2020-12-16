@@ -71,7 +71,8 @@ const DetailView = ({
                       {modelProps.map((x: any) => (
                         <Box mb={2}>
                           {renderPropEditor(
-                            getPropDisplayName(model, x.name),
+                            model,
+                            x.name,
                             x.type,
                             values[x.name],
                             handleChange,

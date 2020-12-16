@@ -6,6 +6,7 @@ export interface PropMetadata {
   name?: string;
   label?: string;
   type?: TypeMetadata;
+  readonly?: boolean;
 };
 export interface ModelMetadata {
   props: Record<string, PropMetadata>;

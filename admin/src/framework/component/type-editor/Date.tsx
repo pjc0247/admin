@@ -30,6 +30,7 @@ export const Date = ({
       <DateTimePicker
         value={value}
         onChange={(e) => setFieldValue(name, e)}
+        {...props}
       />
     </MuiPickersUtilsProvider>
   );

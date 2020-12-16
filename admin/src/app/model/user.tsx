@@ -1,5 +1,5 @@
 import Model from 'framework/model';
-import { label, model, type } from 'framework/model/decorators';
+import { label, model, readonly, type } from 'framework/model/decorators';
 
 @model({
   permissions: {
@@ -17,10 +17,11 @@ class User extends Model {
   @type('number')
   age: number = 13;
 
-  @type('boolean')
-  image: string = '';
+  //@type('File')
+  //image: string = '';
 
   @type('Date')
+  @readonly()
   createdAt: Date = new Date();
 
   @type('Enum', ['admin', 'viewer', 'user'])

@@ -45,6 +45,14 @@ export const label = (label: string) => {
     });
   };
 };
+export const readonly = () => {
+  return (target: any, prop: string) => {
+    const model = target.constructor.name;
+    updatePropMeatadata(model, prop, {
+      readonly: true,
+    });
+  };
+};
 export const type = (type: string, constraints: (any[] | undefined) = undefined) => {
   return (target: any, prop: string) => {
     const model = target.constructor.name;

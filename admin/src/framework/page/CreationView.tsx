@@ -56,7 +56,8 @@ const GroupedEditor = ({
             {group.props.map((x: string) => modelProps.find(y => x === y.name)).map((x: any) => (
               <Box mb={2}>
                 {renderPropEditor(
-                  x.label || x.name,
+                  model,
+                  x.name,
                   x.type,
                   values[x.name],
                   handleChange,
@@ -127,7 +128,8 @@ const CreationView = ({
                       modelProps.map((x: any) => (
                         <Box mb={2}>
                           {renderPropEditor(
-                            getPropDisplayName(model, x.name),
+                            model,
+                            x.name,
                             x.type,
                             values[x.name],
                             handleChange,
