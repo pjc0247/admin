@@ -10,6 +10,10 @@ Features
 * Fully customizable
   * 모듈 안에 숨겨진 부분, 혹은 블랙박스가 없습니다. 모든 내부 로직과 컴포넌트는 `framework/` 폴더에 정의되어 있습니다.
 
+Getting Started
+----
+Just clone this repository and follow the instructions below:
+
 Spec
 ----
 
