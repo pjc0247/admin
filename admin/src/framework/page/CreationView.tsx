@@ -19,6 +19,7 @@ import { useHistory } from 'react-router-dom';
 import IDataProvider from 'framework/data-provider/IDataProvider';
 import { getAllProps, getDefaultValues, getModel, getPropDisplayName } from 'framework/model/decorators';
 import { renderPropEditor } from 'framework/model/editor';
+import { t } from 'framework/lang';
 
 const SAccordianSummary = styled(AccordionSummary)`
   background: linear-gradient( to bottom, rgb(245, 245, 245) 10%, rgb(255, 255, 255) );
@@ -147,7 +148,7 @@ const CreationView = ({
                       color="primary"
                       onClick={handleSubmit}
                     >
-                      생성
+                      {t('create')}
                     </Button>
                   </Box>
                 </>

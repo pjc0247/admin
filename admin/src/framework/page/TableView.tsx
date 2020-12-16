@@ -22,6 +22,7 @@ import { renderProp } from 'framework/model/renderer';
 import { canPerform, DataOperationKind } from 'framework/model/permission';
 import { hasImplementation } from 'framework/data-provider';
 import { LinkTo } from 'framework/component/wrap/LinkTo';
+import { t } from 'framework/lang';
 import AppSpec from 'spec/App';
 
 type TableViewProps = {
@@ -58,7 +59,7 @@ const TableView = ({
               variant="contained"
               color="secondary"
             >
-              삭제
+              {t('delete')}
             </Button>
           </LinkTo>
         )}
@@ -70,7 +71,7 @@ const TableView = ({
               variant="contained"
               color="primary"
             >
-              추가
+              {t('create')}
             </Button>
           </LinkTo>
         )}
