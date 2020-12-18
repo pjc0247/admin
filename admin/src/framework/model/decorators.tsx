@@ -53,6 +53,14 @@ export const readonly = () => {
     });
   };
 };
+export const validation = (...validators: ((v: any) => (string | null))[]) => {
+  return (target: any, prop: string) => {
+    const model = target.constructor.name;
+    updatePropMeatadata(model, prop, {
+      validators,
+    });
+  };
+};
 export const type = (type: string, constraints: (any[] | undefined) = undefined) => {
   return (target: any, prop: string) => {
     const model = target.constructor.name;

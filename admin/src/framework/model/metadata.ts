@@ -7,6 +7,7 @@ export interface PropMetadata {
   label?: string;
   type?: TypeMetadata;
   readonly?: boolean;
+  validators?: ((v: any) => (string | null))[];
 };
 export interface ModelMetadata {
   props: Record<string, PropMetadata>;

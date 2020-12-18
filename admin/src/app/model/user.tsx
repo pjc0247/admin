@@ -1,5 +1,6 @@
 import Model from 'framework/model';
-import { label, model, readonly, type } from 'framework/model/decorators';
+import { label, model, readonly, type, validation } from 'framework/model/decorators';
+import { range } from 'framework/model/validation';
 
 @model({
   permissions: {
@@ -15,6 +16,7 @@ class User extends Model {
   name: string = '기본 이름';
 
   @type('number')
+  @validation(range(1, 100))
   age: number = 13;
 
   //@type('File')

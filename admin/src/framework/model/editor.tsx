@@ -3,6 +3,7 @@ import React from 'react';
 import AppSpec from 'spec/App';
 import { getModelMetadata, getPropDisplayName } from './decorators';
 import { TypeMetadata } from './metadata';
+import { validate } from './validation';
 
 const editors = {
 
@@ -17,7 +18,8 @@ export const renderPropEditor = (model: string, prop: string, type: TypeMetadata
   if (editors[type.name]) {
     const modelMetadata = getModelMetadata(model);
     const Component = editors[type.name];
-    console.log(modelMetadata, modelMetadata.props[prop].readonly);
+    const errors = validate(value, modelMetadata.props[prop].validators || []);
+    
     return (
       <Component
         label={getPropDisplayName(model, prop)}
@@ -26,6 +28,8 @@ export const renderPropEditor = (model: string, prop: string, type: TypeMetadata
         type={type}
         onChange={onChange}
         readOnly={modelMetadata.props[prop].readonly}
+        error={errors.length > 0}
+        helperText={errors[0]}
         {...AppSpec.commonEditorProps}
       />
     );

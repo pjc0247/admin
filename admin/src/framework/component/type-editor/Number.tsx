@@ -8,8 +8,8 @@ export const Number = ({
 }: NumberProps) => {
   return (
     <TextField
-      type="number"
       {...props}
+      type="number"
     />
   );
 };
