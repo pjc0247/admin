@@ -1,6 +1,6 @@
 import Model from 'framework/model';
 import { label, model, readonly, type, validation } from 'framework/model/decorators';
-import { range } from 'framework/model/validation';
+import { notEmpty, range } from 'framework/model/validation';
 
 @model({
   permissions: {
@@ -13,6 +13,7 @@ class User extends Model {
   //@required
   @label('유저명')
   @type('string')
+  @validation(notEmpty())
   name: string = '기본 이름';
 
   @type('number')

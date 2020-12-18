@@ -1,4 +1,4 @@
-import React from 'react';
+import Reactfrom 'react';
 
 import AppSpec from 'spec/App';
 import { getModelMetadata, getPropDisplayName } from './decorators';
