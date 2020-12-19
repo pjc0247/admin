@@ -13,7 +13,6 @@ import {
   Container,
   Box,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 import IDataProvider from 'framework/data-provider/IDataProvider';
 import { useRemoteValue } from 'framework/util/useRemoteValue';

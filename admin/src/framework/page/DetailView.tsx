@@ -10,9 +10,9 @@ import {
 import { useHistory, useLocation } from 'react-router-dom';
 import { Formik } from 'formik';
 
-import { getAllProps, getPropDisplayName } from 'framework/model/decorators';
+import { getAllProps } from 'framework/model/decorators';
 import IDataProvider from 'framework/data-provider/IDataProvider';
-import { PropEditor, renderPropEditor } from 'framework/model/editor';
+import { PropEditor } from 'framework/model/editor';
 import DataOperation from 'framework/component/operation/DataOperation';
 import { DataOperationKind } from 'framework/model/permission';
 
@@ -33,8 +33,8 @@ const DetailView = ({
   const { item } = location.state as DetailViewState;
   const modelProps = getAllProps(model);
 
-  const onClickSubmit = async () => {
-    
+  const onClickSubmit = async (values: any) => {
+    await dataProvider.update(item.id, values);
   };
   const onClickDelete = async () => {
     await dataProvider.delete(item.id);

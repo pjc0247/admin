@@ -6,7 +6,6 @@ import {
   Card,
   CardContent,
   Container,
-  TextField,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -17,12 +16,12 @@ import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
 
 import IDataProvider from 'framework/data-provider/IDataProvider';
-import { getAllProps, getDefaultValues, getModel, getPropDisplayName } from 'framework/model/decorators';
-import { renderPropEditor } from 'framework/model/editor';
+import { getAllProps, getDefaultValues, getModel } from 'framework/model/decorators';
+import { PropEditor } from 'framework/model/editor';
 import { t } from 'framework/lang';
 
 const SAccordianSummary = styled(AccordionSummary)`
-  background: linear-gradient( to bottom, rgb(245, 245, 245) 10%, rgb(255, 255, 255) );
+  background: linear-gradient(to bottom, rgb(245, 245, 245) 10%, rgb(255, 255, 255));
 `;
 
 type GroupedEditorProps = {
@@ -56,13 +55,13 @@ const GroupedEditor = ({
           <AccordionDetails>
             {group.props.map((x: string) => modelProps.find(y => x === y.name)).map((x: any) => (
               <Box mb={2}>
-                {renderPropEditor(
-                  model,
-                  x.name,
-                  x.type,
-                  values[x.name],
-                  handleChange,
-                )}
+                <PropEditor
+                  model={model}
+                  prop={x.name}
+                  type={x.type}
+                  value={values[x.name]}
+                  onChange={handleChange}
+                />
               </Box>
             ))}
           </AccordionDetails>
@@ -128,13 +127,13 @@ const CreationView = ({
                     {!groups && (
                       modelProps.map((x: any) => (
                         <Box mb={2}>
-                          {renderPropEditor(
-                            model,
-                            x.name,
-                            x.type,
-                            values[x.name],
-                            handleChange,
-                          )}
+                          <PropEditor
+                            model={model}
+                            prop={x.name}
+                            type={x.type}
+                            value={values[x.name]}
+                            onChange={handleChange}
+                          />
                         </Box>
                       ))
                     )}
