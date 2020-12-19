@@ -56,15 +56,19 @@ export const PropEditor = ({
   const {
     errors,
     setFieldError,
+    registerField,
   } = useFormikContext();
   const propError = (errors as Record<string, string>)[prop];
   const modelMetadata = getModelMetadata(model);
 
   useEffect(() => {
-    const errors = validate(value, modelMetadata.props[prop].validators || []);
-    if (errors.length > 0)
-      setFieldError(prop, errors[0]);
-  }, [value]);
+    registerField(prop, {
+      validate: (v: any) => validate(
+        v,
+        modelMetadata.props[prop].validators || []
+      )[0],
+    });
+  }, []);
 
   if (editors[type.name]) {
     const Component = editors[type.name];

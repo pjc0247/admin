@@ -23,7 +23,13 @@ class UserProvider extends IDataProvider {
       .limit(limit)
       .get())
       .docs
-      .map(x => x.data());
+      .map(x => ({ id: x.id, ...x.data() }));
+  }
+  async update(id: string, value: any) {
+    await store()
+      .collection('user')
+      .doc(id)
+      .update(value);
   }
 
   /*

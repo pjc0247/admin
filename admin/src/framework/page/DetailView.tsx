@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  CircularProgress,
   Container,
   Typography,
 } from '@material-ui/core';
@@ -15,6 +16,7 @@ import IDataProvider from 'framework/data-provider/IDataProvider';
 import { PropEditor } from 'framework/model/editor';
 import DataOperation from 'framework/component/operation/DataOperation';
 import { DataOperationKind } from 'framework/model/permission';
+import { notEmpty, validate } from 'framework/model/validation';
 
 type DetailViewState = {
   item: any;
@@ -35,6 +37,7 @@ const DetailView = ({
 
   const onClickSubmit = async (values: any) => {
     await dataProvider.update(item.id, values);
+    history.goBack();
   };
   const onClickDelete = async () => {
     await dataProvider.delete(item.id);
@@ -104,9 +107,14 @@ const DetailView = ({
                           disabled={!isValid}
                           variant="contained"
                           color="primary"
+                          role="button"
                           onClick={handleSubmit}
                         >
-                          수정
+                          {isSubmitting ? (
+                            <CircularProgress size={16} style={{ color: 'white' }} />
+                          ) : (
+                            '수정'
+                          )}
                         </Button>
                       </DataOperation>
                     </Box>
