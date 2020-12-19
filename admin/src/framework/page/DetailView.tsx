@@ -12,7 +12,7 @@ import { Formik } from 'formik';
 
 import { getAllProps, getPropDisplayName } from 'framework/model/decorators';
 import IDataProvider from 'framework/data-provider/IDataProvider';
-import { renderPropEditor } from 'framework/model/editor';
+import { PropEditor, renderPropEditor } from 'framework/model/editor';
 import DataOperation from 'framework/component/operation/DataOperation';
 import { DataOperationKind } from 'framework/model/permission';
 
@@ -63,6 +63,7 @@ const DetailView = ({
                   handleChange,
                   handleSubmit,
                   isSubmitting,
+                  isValid,
                   touched,
                   values
                 }: any) => (
@@ -70,13 +71,13 @@ const DetailView = ({
                     <Box mt={3} mb={2}>
                       {modelProps.map((x: any) => (
                         <Box mb={2}>
-                          {renderPropEditor(
-                            model,
-                            x.name,
-                            x.type,
-                            values[x.name],
-                            handleChange,
-                          )}
+                          <PropEditor
+                            model={model}
+                            prop={x.name}
+                            type={x.type}
+                            value={values[x.name]}
+                            onChange={handleChange}
+                          />
                         </Box>
                       ))}
                     </Box>
@@ -100,6 +101,7 @@ const DetailView = ({
                         operationKind={DataOperationKind.Update}
                       >
                         <Button
+                          disabled={!isValid}
                           variant="contained"
                           color="primary"
                           onClick={handleSubmit}

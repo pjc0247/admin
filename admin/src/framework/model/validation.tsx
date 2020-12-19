@@ -19,5 +19,5 @@ export const notEmpty = () => {
 };
 
 export const validate = (v: any, validators: ((v: any) => string | null)[]) => {
-  return validators.map(x => x(v)).filter(x => !!x);
+  return validators.map(x => x(v)).filter(x => !!x) as string[];
 };
