@@ -22,3 +22,23 @@ export const renderProp = (data: any, type: TypeMetadata) => {
   }
   return `${data}`;
 };
+
+type PropRendererProps = {
+  value: any;
+  type: TypeMetadata;
+};
+export const PropRenderer = ({
+  value,
+  type,
+  ...props
+}: PropRendererProps) => {
+  if (renderers[type.name]) {
+    const Component = renderers[type.name];
+    return (
+      <Component type={type}>
+        {value}
+      </Component>
+    );
+  }
+  return <>`${value}`</>;
+};

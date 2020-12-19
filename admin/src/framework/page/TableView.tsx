@@ -8,21 +8,20 @@ import {
   TableCell,
   TableRow,
   Button,
-  LinearProgress,
-  CircularProgress,
   Container,
   Box,
 } from '@material-ui/core';
 
 import IDataProvider from 'framework/data-provider/IDataProvider';
 import { useRemoteValue } from 'framework/util/useRemoteValue';
-import { getAllProps, getBreifProps, getPropDisplayName } from 'framework/model/decorators';
-import { renderProp } from 'framework/model/renderer';
+import { getBreifProps, getPropDisplayName } from 'framework/model/decorators';
+import { PropRenderer } from 'framework/model/renderer';
 import { canPerform, DataOperationKind } from 'framework/model/permission';
 import { hasImplementation } from 'framework/data-provider';
 import { LinkTo } from 'framework/component/wrap/LinkTo';
 import { t } from 'framework/lang';
 import AppSpec from 'spec/App';
+import { PropMetadata } from 'framework/model/metadata';
 
 type TableViewProps = {
   model: string;
@@ -97,10 +96,10 @@ const TableView = ({
                   <TableRow>
                     {modelProps.map((p: any) => (
                       <TableCell>
-                        {renderProp(
-                          x[p.name],
-                          p.type,
-                        )}
+                        <PropRenderer
+                          value={x[p.name]}
+                          type={p.type}
+                        />
                       </TableCell>
                     ))}
                   </TableRow>
