@@ -9,3 +9,10 @@ export const registerTypeConverter = (type: string, converter: ITypeConverter) =
     throw new Error(`converter is null or undefined for type: ${type}`);
   converters[type] = converter;
 };
+
+export const serverToClient = (object: any) => {
+
+};
+export const clientToServer = (object: any) => {
+
+};

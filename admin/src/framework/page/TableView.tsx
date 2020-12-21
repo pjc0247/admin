@@ -21,7 +21,6 @@ import { hasImplementation } from 'framework/data-provider';
 import { LinkTo } from 'framework/component/wrap/LinkTo';
 import { t } from 'framework/lang';
 import AppSpec from 'spec/App';
-import { PropMetadata } from 'framework/model/metadata';
 
 type TableViewProps = {
   model: string;
