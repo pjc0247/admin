@@ -6,6 +6,7 @@ cache:
   - admin/node_modules
 script:
   - cd admin
+  - npm i -g react-app-rewired
   - npm run build
 
 deploy:
