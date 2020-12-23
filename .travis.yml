@@ -8,7 +8,7 @@ cache:
 script:
   - cd admin
   - yarn install
-  - yarn build
+  - yarn build:travis
 
 deploy:
   provider: pages
