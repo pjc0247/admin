@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import firebase from 'firebase';
+
 import App from './App';
 
-import firebase from 'firebase';
 var firebaseConfig = {
   apiKey: "AIzaSyDvV5BymKUwqV3SL39xHgODtUtYiiDmBeQ",
   authDomain: "mullin-57ea5.firebaseapp.com",
