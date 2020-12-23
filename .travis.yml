@@ -3,9 +3,9 @@ node_js:
   - "stable"
 cache:
   directories:
-  - node_modules
+  - admin/node_modules
 script:
-  - npm test
+  - cd admin
   - npm run build
 
 deploy:
