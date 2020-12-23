@@ -2,14 +2,13 @@ language: node_js
 node_js:
   - "stable"
 cache:
+  yarn: true
   directories:
   - admin/node_modules
 script:
   - cd admin
-  - npm i -g react-app-rewired
-  - npm i -g react-dev-utils
-  - npm i -g typescript
-  - npm run build
+  - yarn install
+  - yarn build
 
 deploy:
   provider: pages
