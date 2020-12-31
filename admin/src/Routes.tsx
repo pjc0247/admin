@@ -22,14 +22,19 @@ const mayRequireAuth = (Component: any, requireAuth: boolean) => () => {
     <Component />
   );
 };
+const arrange = (pages: any) => {
+  return [
+    ...pages.filter((x: any) => x.path !== '/'),
+    ...pages.filter((x: any) => x.path === '/')
+  ].filter(x => !!x);
+};
 
 const Routes = ({
 
 }) => {
   return (
     <Switch>
-      {Object.keys(PageSepc).map(x => {
-        const page = (PageSepc as any)[x];
+      {arrange(Object.values(PageSepc)).map(page => {
         const Component = mayRequireAuth(page.component, !page.public);
 
         console.log('comp', page.component);

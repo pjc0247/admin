@@ -8,7 +8,6 @@ import { Dashboard } from 'app/page/Dashboard';
 const Page = {
   Dashboard: {
     path: '/',
-    exact: true,
     component: () => <Dashboard />,
   },
   Login: {
