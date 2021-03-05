@@ -2,6 +2,11 @@ admin::builder
 ====
 Build admin pages with less code.
 
+Goal
+----
+* Django의 어드민과 비슷하게, 모델의 스카마로부터 자동으로 어드민을 생성합니다.
+* 아예 완전히 커스텀하거나, 부분적으로 커스텀하던 어느쪽으로든 쉬운 구조를 가집니다.
+
 Features
 ----
 * Coding with magic
