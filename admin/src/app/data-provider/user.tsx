@@ -4,7 +4,7 @@ import IDataProvider from 'framework/data-provider/IDataProvider';
 
 const store = () => firebase.firestore();
 
-class UserProvider extends IDataProvider {
+export class UserProvider extends IDataProvider {
   async create(values: any) {
     await store()
       .collection('user')
@@ -38,4 +38,3 @@ class UserProvider extends IDataProvider {
   }
   */
 }
-export default UserProvider;

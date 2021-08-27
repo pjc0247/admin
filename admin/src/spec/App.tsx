@@ -1,4 +1,4 @@
-import AuthProvider from 'app/data-provider/auth';
+import { AuthProvider } from 'app/data-provider/auth';
 
 const App = {
   name: 'your test admin',

@@ -8,7 +8,7 @@ import { notEmpty, range } from 'framework/model/validation';
     viewer: 'R',
   },
 })
-class User extends Model {
+export class User extends Model {
   //@editable
   //@required
   @label('유저명')
@@ -46,4 +46,3 @@ class User extends Model {
     ];
   }
 }
-export default User;
