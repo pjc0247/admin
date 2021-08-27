@@ -35,4 +35,3 @@ export const Date = ({
     </MuiPickersUtilsProvider>
   );
 };
-export default Date;

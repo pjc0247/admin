@@ -24,4 +24,3 @@ export const File = ({
     </Box>
   );
 };
-export default File;

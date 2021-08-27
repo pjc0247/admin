@@ -11,6 +11,13 @@ const models = {
 
 } as Record<string, ModelMetadata>;
 
+const preventRenaming = (x: any) => {
+  // @ts-ignore
+  if (!window.__models) window.__models = {};
+  // @ts-ignore
+  window.__models[x.name] = x;
+};
+
 interface ModelParams {
   permissions?: Record<string, string>;
 };
@@ -24,6 +31,7 @@ export const model = (params: ModelParams = {}) => {
       breifProps: instance.brief(),
       groups: instance.groups(),
     };
+    preventRenaming(ctor);
     console.log(models);
   };
 }

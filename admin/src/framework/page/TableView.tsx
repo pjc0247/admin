@@ -12,7 +12,7 @@ import {
   Box,
 } from '@material-ui/core';
 
-import IDataProvider from 'framework/data-provider/IDataProvider';
+import { IDataProvider } from 'framework/data-provider/IDataProvider';
 import { useRemoteValue } from 'framework/util/useRemoteValue';
 import { getBreifProps, getPropDisplayName } from 'framework/model/decorators';
 import { PropRenderer } from 'framework/model/renderer';

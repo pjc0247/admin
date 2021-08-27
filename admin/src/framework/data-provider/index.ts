@@ -1,5 +1,5 @@
 import { DataOperationKind } from 'framework/model/permission';
-import IDataProvider from './IDataProvider';
+import { IDataProvider } from './IDataProvider';
 
 export const hasImplementation = (dataProvider: IDataProvider, kind: DataOperationKind) => {
   console.log(dataProvider);

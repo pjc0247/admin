@@ -9,4 +9,3 @@ export const Number = ({
 }: NumberProps) => {
   return `${children}`;
 };
-export default Number;

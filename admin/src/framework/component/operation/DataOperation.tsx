@@ -6,7 +6,7 @@ type DataOperationProps = {
   operationKind: DataOperationKind;
   children: any;
 };
-const DataOperation = ({
+export const DataOperation = ({
   operationKind,
   children,
   ...props
@@ -15,4 +15,3 @@ const DataOperation = ({
     React.cloneElement(children, props)
   );
 };
-export default DataOperation;

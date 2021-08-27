@@ -34,4 +34,3 @@ export const Enum = ({
     </FormControl>
   );
 };
-export default Enum;

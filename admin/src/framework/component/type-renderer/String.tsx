@@ -9,4 +9,3 @@ export const String = ({
 }: StringProps) => {
   return children || '';
 };
-export default String;

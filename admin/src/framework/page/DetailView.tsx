@@ -12,9 +12,9 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Formik } from 'formik';
 
 import { getAllProps } from 'framework/model/decorators';
-import IDataProvider from 'framework/data-provider/IDataProvider';
+import { IDataProvider } from 'framework/data-provider/IDataProvider';
 import { PropEditor } from 'framework/model/editor';
-import DataOperation from 'framework/component/operation/DataOperation';
+import { DataOperation } from 'framework/component/operation/DataOperation';
 import { DataOperationKind } from 'framework/model/permission';
 import { notEmpty, validate } from 'framework/model/validation';
 

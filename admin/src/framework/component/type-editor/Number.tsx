@@ -13,4 +13,3 @@ export const Number = ({
     />
   );
 };
-export default Number;

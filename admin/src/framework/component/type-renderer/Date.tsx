@@ -9,4 +9,3 @@ export const Date = ({
 }: DateProps) => {
   return children?.toString();
 };
-export default Date;

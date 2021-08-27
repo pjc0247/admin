@@ -12,4 +12,3 @@ export const String = ({
     />
   );
 };
-export default String;

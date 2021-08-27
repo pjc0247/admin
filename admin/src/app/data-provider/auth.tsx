@@ -1,4 +1,4 @@
-import IAuthProvider from 'framework/data-provider/IAuthProvider';
+import { IAuthProvider } from 'framework/data-provider/IAuthProvider';
 
 export class AuthProvider extends IAuthProvider {
   get role() {

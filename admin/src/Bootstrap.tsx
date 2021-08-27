@@ -11,20 +11,20 @@ import 'app/model/user';
 
 /*  Declare your custom type renderers here:
  */
-registerRenderer('Date', require('framework/component/type-renderer/Date').default);
-registerRenderer('string', require('framework/component/type-renderer/String').default);
-registerRenderer('number', require('framework/component/type-renderer/Number').default);
-registerRenderer('Rating', require('framework/component/type-renderer/Rating').default);
+registerRenderer('Date', require('framework/component/type-renderer/Date').Date);
+registerRenderer('string', require('framework/component/type-renderer/String').String);
+registerRenderer('number', require('framework/component/type-renderer/Number').Number);
+registerRenderer('Rating', require('framework/component/type-renderer/Rating').Rating);
 
-registerEditor('File', require('framework/component/type-editor/File').default);
-registerEditor('Date', require('framework/component/type-editor/Date').default);
-registerEditor('Enum', require('framework/component/type-editor/Enum').default);
-registerEditor('boolean', require('framework/component/type-editor/Boolean').default);
-registerEditor('string', require('framework/component/type-editor/String').default);
-registerEditor('number', require('framework/component/type-editor/Number').default);
+registerEditor('File', require('framework/component/type-editor/File').File);
+registerEditor('Date', require('framework/component/type-editor/Date').Date);
+registerEditor('Enum', require('framework/component/type-editor/Enum').Enum);
+registerEditor('boolean', require('framework/component/type-editor/Boolean').Boolean);
+registerEditor('string', require('framework/component/type-editor/String').String);
+registerEditor('number', require('framework/component/type-editor/Number').Number);
 
 /*  Declare your custom type converters here:
  */
-registerTypeConverter('Date', require('framework/type/Date').default);
+registerTypeConverter('Date', require('framework/type/Date').Date);
 
 moment.locale("ko");

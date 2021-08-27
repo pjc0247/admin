@@ -15,7 +15,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
 
-import IDataProvider from 'framework/data-provider/IDataProvider';
+import { IDataProvider } from 'framework/data-provider/IDataProvider';
 import { getAllProps, getDefaultValues, getModel } from 'framework/model/decorators';
 import { PropEditor } from 'framework/model/editor';
 import { t } from 'framework/lang';

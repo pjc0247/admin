@@ -1,4 +1,4 @@
-class IAuthProvider {
+export class IAuthProvider {
   private __isLoggedIn = false;
 
   get isLoggedIn() {
@@ -16,4 +16,3 @@ class IAuthProvider {
   logout() {
   }
 }
-export default IAuthProvider;

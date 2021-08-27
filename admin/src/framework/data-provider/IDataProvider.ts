@@ -1,7 +1,7 @@
 // It's an interface, but declared as `class`
 // ~~~
 
-class IDataProvider {
+export class IDataProvider {
   // create
   create(...args: any): Promise<void> {
     return Promise.resolve();
@@ -28,4 +28,3 @@ class IDataProvider {
     return Promise.resolve();
   }
 }
-export default IDataProvider;
