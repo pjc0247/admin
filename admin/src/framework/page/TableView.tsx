@@ -33,9 +33,12 @@ const TableView = ({
 }: TableViewProps) => {
   const modelProps = getBreifProps(model);
   const role = AppSpec.authProvider.role;
-  const [data] = useRemoteValue(() => {
+  const [{
+    data,
+    totalCount,
+  }] = useRemoteValue(() => {
     return dataProvider.list(0, 100);
-  }, [], []);
+  }, [], { data: [], totalCount: 0 });
 
   const shouldDisplay = (kind: DataOperationKind) => {
     return canPerform(model, role, kind)
@@ -108,7 +111,7 @@ const TableView = ({
           </Table>
           <TablePagination
             component="div"
-            count={20}
+            count={totalCount}
             onChangePage={() => {}}
             onChangeRowsPerPage={() => {}}
             page={1}

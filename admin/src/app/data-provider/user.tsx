@@ -18,12 +18,18 @@ export class UserProvider extends IDataProvider {
       .data();
   }
   async list(offset: number, limit: number) {
-    return (await store()
+    // this method does not implement pagination
+    // since it's just a simple demo and firestore is not pagination friendly.
+    const data = (await store()
       .collection('user')
       .limit(limit)
       .get())
       .docs
       .map(x => ({ id: x.id, ...x.data() }));
+    return {
+      data,
+      totalCount: limit,
+    };
   }
   async update(id: string, value: any) {
     await store()
