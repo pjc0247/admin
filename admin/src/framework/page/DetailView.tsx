@@ -41,6 +41,7 @@ const DetailView = ({
   };
   const onClickDelete = async () => {
     await dataProvider.delete(item.id);
+    history.goBack();
   };
 
   return (

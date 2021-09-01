@@ -25,6 +25,6 @@ registerEditor('number', require('framework/component/type-editor/Number').Numbe
 
 /*  Declare your custom type converters here:
  */
-registerTypeConverter('Date', require('framework/type/Date').Date);
+registerTypeConverter('Date', require('framework/type/Date').DateConverter);
 
 moment.locale("ko");

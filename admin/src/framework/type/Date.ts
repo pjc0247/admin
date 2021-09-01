@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 import TypeSpec from 'spec/Type';
-import ITypeConverter from './ITypeConverter';
+import { ITypeConverter } from './ITypeConverter';
 
 export enum TimestampKind {
   Epoch = 'epoch',
@@ -9,7 +9,7 @@ export enum TimestampKind {
   SQL = 'sql',
 };
 
-class DateConverter extends ITypeConverter {
+export class DateConverter extends ITypeConverter {
   toClientType(value: any) {
     return moment(value);
   }
@@ -24,4 +24,3 @@ class DateConverter extends ITypeConverter {
     throw new Error('You must specify timestampKind or implement your own.');
   }
 }
-export default DateConverter;

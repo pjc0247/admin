@@ -1,4 +1,4 @@
-import ITypeConverter from './ITypeConverter';
+import { ITypeConverter } from './ITypeConverter';
 
 const converters = {
 
