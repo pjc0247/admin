@@ -1,3 +1,5 @@
+type ValidatorFunc = (v: any) => string | null;
+
 export const range = (min: number, max: number) => {
   return (v: number) => {
     if (v >= min && v <= max) return null;
@@ -18,6 +20,6 @@ export const notEmpty = () => {
   };
 };
 
-export const validate = (v: any, validators: ((v: any) => string | null)[]) => {
-  return validators.map(x => x(v)).filter(x => !!x) as string[];
+export const validate = (v: any, validators: ValidatorFunc[]) => {
+  return validators.every(x => x(v)) as string[];
 };
