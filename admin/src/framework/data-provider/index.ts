@@ -1,3 +1,5 @@
+export * from './IFileProvider';
+
 import { DataOperationKind } from 'framework/model/permission';
 import { IDataProvider } from './IDataProvider';
 
