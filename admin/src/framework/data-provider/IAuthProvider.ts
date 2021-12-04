@@ -8,10 +8,10 @@ export class IAuthProvider {
     return 'admin';
   }
 
-  login(id: string, password: string): Promise<void> | boolean {
+  login(id: string, password: string): Promise<boolean> {
     console.log(`mockup login with id: ${id}, password: ${password}`);
     this.__isLoggedIn = true;
-    return Promise.resolve();
+    return Promise.resolve(true);
   }
   logout() {
   }
