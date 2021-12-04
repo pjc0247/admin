@@ -44,7 +44,7 @@ export const PropEditor = ({
       validate: (v: any) => validate(
         v,
         modelMetadata.props[prop].validators || []
-      )[0],
+      ) as string,
     });
   }, []);
 

@@ -21,5 +21,7 @@ export const notEmpty = () => {
 };
 
 export const validate = (v: any, validators: ValidatorFunc[]) => {
-  return validators.every(x => x(v)) as string[];
+  return validators
+    .map(x => x(v))
+    .find(x => !!x);
 };
