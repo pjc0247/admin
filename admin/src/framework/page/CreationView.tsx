@@ -52,19 +52,19 @@ const GroupedEditor = ({
               <b>{group.label}</b>
             </Typography>
           </SAccordianSummary>
-          <AccordionDetails>
+          <AccordionDetails
+            style={{ flexDirection: 'column' }}
+          >
             {group.props.map((x: string) => modelProps.find(y => x === y.name)).map((x: any) => (
-              <Box mb={2}>
-                <PropEditor
-                  model={model}
-                  prop={x.name}
-                  type={x.type}
-                  value={values[x.name]}
-                  onChange={handleChange}
-                />
-              </Box>
+              <PropEditor
+                model={model}
+                prop={x.name}
+                type={x.type}
+                value={values[x.name]}
+                onChange={handleChange}
+              />
             ))}
-          </AccordionDetails>
+          </AccordionDetails> 
         </Accordion>
       ))}
     </>
@@ -110,10 +110,11 @@ const CreationView = ({
                 handleBlur,
                 handleChange,
                 handleSubmit,
+                setFieldValue,
                 isSubmitting,
                 touched,
                 values
-              }: any) => (
+              }) => (
                 <>
                   <Box mt={3} mb={2}>
                     {!!groups && (
@@ -132,7 +133,12 @@ const CreationView = ({
                             prop={x.name}
                             type={x.type}
                             value={values[x.name]}
-                            onChange={handleChange}
+                            onChange={(e) => {
+                              if (e?.nativeEvent instanceof Event)
+                                handleChange(e);
+                              else
+                                setFieldValue(x.name, e);
+                            }}
                           />
                         </Box>
                       ))
@@ -145,7 +151,7 @@ const CreationView = ({
                     <Button
                       variant="contained"
                       color="primary"
-                      onClick={handleSubmit}
+                      onClick={(e: any) => handleSubmit(e)}
                     >
                       {t('create')}
                     </Button>

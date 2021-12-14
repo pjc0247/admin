@@ -1,10 +1,9 @@
-export * from './IFileProvider';
-
 import { DataOperationKind } from 'framework/model/permission';
 import { IDataProvider } from './IDataProvider';
 
+export * from './IFileProvider';
+
 export const hasImplementation = (dataProvider: IDataProvider, kind: DataOperationKind) => {
-  console.log(dataProvider);
   const methods = Object.getOwnPropertyNames((dataProvider as any).constructor.prototype);
   
   if (kind === DataOperationKind.Create)

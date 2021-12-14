@@ -1,11 +1,12 @@
+import LabelSpec from 'spec/Label';
+import { IFileProvider } from 'framework/data-provider';
+
 import Model from '.';
 import {
   TypeMetadata,
   ModelMetadata,
   PropMetadata,
 } from './metadata';
-
-import LabelSpec from 'spec/Label';
 
 const models = {
 
@@ -69,13 +70,21 @@ export const validation = (...validators: ((v: any) => (string | null))[]) => {
     });
   };
 };
-export const type = (type: string, constraints: (any[] | undefined) = undefined) => {
+
+interface typeParams {
+  fileProvider?: typeof IFileProvider;
+  editorProps?: Record<string, any>;
+  constraints?: (any[] | undefined);
+};
+export const type = (type: string, params: typeParams = {}) => {
   return (target: any, prop: string) => {
     const model = target.constructor.name;
     updatePropMeatadata(model, prop, {
       type: {
         name: type,
-        constraints,
+        fileProvider: params.fileProvider && new (params.fileProvider as any)(),
+        constraints: params.constraints,
+        editorProps: params.editorProps || {},
       },
     });
   };

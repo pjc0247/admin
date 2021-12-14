@@ -66,11 +66,12 @@ const DetailView = ({
                   handleBlur,
                   handleChange,
                   handleSubmit,
+                  setFieldValue,
                   isSubmitting,
                   isValid,
                   touched,
                   values
-                }: any) => (
+                }) => (
                   <>
                     <Box mt={3} mb={2}>
                       {modelProps.map((x: any) => (
@@ -80,7 +81,12 @@ const DetailView = ({
                             prop={x.name}
                             type={x.type}
                             value={values[x.name]}
-                            onChange={handleChange}
+                            onChange={(e) => {
+                              if (e?.nativeEvent instanceof Event)
+                                handleChange(e);
+                              else
+                                setFieldValue(x.name, e);
+                            }}
                           />
                         </Box>
                       ))}
@@ -109,7 +115,7 @@ const DetailView = ({
                           variant="contained"
                           color="primary"
                           role="button"
-                          onClick={handleSubmit}
+                          onClick={(e: any) => handleSubmit(e)}
                         >
                           {isSubmitting ? (
                             <CircularProgress size={16} style={{ color: 'white' }} />

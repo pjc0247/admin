@@ -1,6 +1,10 @@
+import { IFileProvider } from 'framework/data-provider';
+
 export interface TypeMetadata {
   name: string;
   constraints: any[] | undefined;
+  fileProvider?: IFileProvider;
+  editorProps?: Record<string, any>;
 };
 export interface PropMetadata {
   name?: string;
